@@ -51,7 +51,7 @@ class SosacContentProvider(ContentProvider):
     par = None
 
     def __init__(self, username=None, password=None, filter=None, reverse_eps=False):
-        ContentProvider.__init__(self, name='sosac.ph', base_url=MOVIES_BASE_URL, username=username,
+        ContentProvider.__init__(self, name='prehraj.me', base_url=MOVIES_BASE_URL, username=username,
                                  password=password, filter=filter)
         opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookielib.LWPCookieJar()))
         urllib2.install_opener(opener)
