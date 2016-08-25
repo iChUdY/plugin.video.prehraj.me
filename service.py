@@ -24,8 +24,8 @@ import xbmcaddon
 from resources.lib.sosac import SosacContentProvider
 from resources.lib.sutils import XBMCSosac
 
-__scriptid__ = 'plugin.video.sosac.ph'
-__scriptname__ = 'sosac.ph'
+__scriptid__ = 'plugin.video.prehraj.me'
+__scriptname__ = 'prehraj.me'
 __addon__ = xbmcaddon.Addon(id=__scriptid__)
 __language__ = __addon__.getLocalizedString
 __set__ = __addon__.getSetting
