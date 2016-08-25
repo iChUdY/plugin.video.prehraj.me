@@ -83,7 +83,7 @@ class SosacContentProvider(ContentProvider):
              TV_SHOWS_BASE_URL + "/" + self.ISO_639_1_CZECH + RECENTLY_ADDED_TYPE)]:
             item = self.dir_item(title=title, url=url)
             if title == 'Movies' or title == 'TV Shows' or title == 'Movies - Recently added':
-                item['menu'] = {"[B][COLOR red]Add all to library[/COLOR][/B]": {
+                item['menu'] = {"[B][COLOR yellow]Add all to library[/COLOR][/B]": {
                     'action': 'add-all-to-library', 'title': title}}
             result.append(item)
         return result
@@ -234,7 +234,7 @@ class SosacContentProvider(ContentProvider):
                 item['img'] = film.findtext('obrazekmaly')
                 item['url'] = self.base_url + '/player/' + self.parent.make_name(
                     film.findtext('nazeven').encode('utf-8') + '-' + film.findtext('rokvydani'))
-                item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+                item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                     'url': item['url'], 'action': 'add-to-library', 'name': item['title']}}
                 self._filter(result, item)
             except Exception, e:
@@ -304,7 +304,7 @@ class SosacContentProvider(ContentProvider):
                     'url': m.group('url'), 'action': 'remove-subscription', 'name': m.group('name')}
                 }
             else:
-                item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+                item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                     'url': m.group('url'), 'action': 'add-to-library', 'name': m.group('name')}}
             self._filter(result, item)
         paging = util.substr(page, '<div class=\"pagination\"', '</div')
@@ -341,7 +341,7 @@ class SosacContentProvider(ContentProvider):
                     'url': m.group('url'), 'action': 'remove-subscription',
                     'name': m.group('name') + " S" + m.group('serie') + 'E' + m.group('epizoda')}}
             else:
-                item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+                item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                     'url': m.group('url'), 'action': 'add-to-library',
                     'name': m.group('name') + " S" + m.group('serie') + 'E' + m.group('epizoda')}}
             self._filter(result, item)
@@ -401,7 +401,7 @@ class SosacContentProvider(ContentProvider):
                     item['name'] = item['title']
                     item['url'] = 'http://movies.prehraj.me/' + self.ISO_639_1_CZECH + \
                         'player/' + self.parent.make_name(title + '-' + film.findtext('rokvydani'))
-                    item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+                    item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                         'url': item['url'], 'action': 'add-to-library', 'name': item['title']}}
                     item['update'] = True
                     item['notify'] = False
@@ -438,7 +438,7 @@ class SosacContentProvider(ContentProvider):
                 item['name'] = item['title']
                 item['url'] = 'http://movies.prehraj.me/' + self.ISO_639_1_CZECH + \
                     'player/' + self.parent.make_name(title + '-' + film.findtext('rokvydani'))
-                item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+                item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                     'url': item['url'], 'action': 'add-to-library', 'name': item['title']}}
                 item['update'] = True
                 item['notify'] = False
@@ -483,7 +483,7 @@ class SosacContentProvider(ContentProvider):
             item = self.video_item()
             item['url'] = m.group('url')
             item['title'] = m.group('name')
-            item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+            item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                 'url': m.group('url'), 'action': 'add-to-library', 'name': m.group('name')}}
             self._filter(result, item)
         paging = util.substr(page, '<div class=\"pagination\"', '</div')
@@ -558,7 +558,7 @@ class SosacContentProvider(ContentProvider):
             item['title'] = entry.h4.a.text
             item['img'] = MOVIES_BASE_URL + entry.img.get('src')
             item['plot'] = entry.p.text.strip()
-            item['menu'] = {"[B][COLOR red]Add to library[/COLOR][/B]": {
+            item['menu'] = {"[B][COLOR yellow]Add to library[/COLOR][/B]": {
                 'url': item['url'], 'action': 'add-to-library', 'name': item['title']}}
             self._filter(result, item)
         # Process next 4 pages, so we'll get 20 items per page instead of 4
